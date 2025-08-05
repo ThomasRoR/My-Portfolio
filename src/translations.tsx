@@ -114,8 +114,18 @@ type HeaderContent = {
       experience: {
         title: "Experiência Profissional",
         jobs: [
-          { title: "Cargo Ocupado", company: "Nome da Empresa", dateRange: "Jan 2022 - Presente", responsibilities: ["Responsabilidade 1: Descreva o que você fazia.", "Responsabilidade 2: Destaque suas conquistas.", "Responsabilidade 3: Use verbos de ação fortes."]},
-          { title: "Outro Cargo", company: "Outra Empresa", dateRange: "Fev 2020 - Dez 2021", responsibilities: ["Exemplo de tarefa ou projeto significativo.", "Outra descrição de atividade."]}
+          { title: "Desenvolvedor Full Stack", 
+            company: "Puah Consultoria", 
+            dateRange: "Dez 2023 - Mar 2025", 
+            responsibilities: ["Desenvolvimento Full-Stack", "Design de Interfaces.", "Testes e Planejamento estratégico."]},
+          { title: "Estágio UI/UX", 
+            company: "Puah Consultoria", 
+            dateRange: "Mai 2023 - Dez 2023", 
+            responsibilities: ["Design de interface do usuário", "Experiência do usuário (UX)","Teste de usabilidade","Figma (Software)","Wireframes."]},
+          { title: "Estágio", 
+            company: "1 Delegacia de Polícia de Caraguatatuba", 
+            dateRange: "Dez 2019 - Fev 2021", 
+            responsibilities: ["Atendimento ao Cliente.", "Suporte Técnico.", "Servícos Administrativos."]},
         ]
       },
       projects: {
@@ -170,8 +180,18 @@ type HeaderContent = {
       experience: {
         title: "Professional Experience",
         jobs: [
-          { title: "Position Held", company: "Company Name", dateRange: "Jan 2022 - Present", responsibilities: ["Responsibility 1: Describe what you did.", "Responsibility 2: Highlight your achievements.", "Responsibility 3: Use strong action verbs."]},
-          { title: "Another Position", company: "Another Company", dateRange: "Feb 2020 - Dec 2021", responsibilities: ["Example of a significant task or project.", "Another activity description."]}
+          { title: "Full Stack Developer",
+            company: "Puah Consultancy",
+            dateRange: "Dec 2023 - Mar 2025",
+            responsibilities: ["Full-Stack Development", "Interface Design.", "Testing and Strategic Planning."]},
+          { title: "UI/UX Internship",
+            company: "Puah Consultancy",
+            dateRange: "May 2023 - Dec 2023",
+            responsibilities: ["User interface design","User experience (UX)","Usability testing","Figma (Software)","Wireframes."]},
+          { title: "Internship",
+            company: "1st Police Station of Caraguatatuba",
+            dateRange: "Dec 2019 - Feb 2021",
+            responsibilities: ["Customer Service.","Technical Support.","Administrative Services."]}
         ]
       },
       projects: {
