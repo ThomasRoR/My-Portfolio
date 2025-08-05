@@ -139,7 +139,7 @@ type HeaderContent = {
       contact: {
         title: "Vamos Conversar",
         subtitle: "Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato.",
-        links: { github: "#", linkedin: "#", email: "seuemail@example.com" }
+        links: { github: "https://github.com/ThomasRoR", linkedin: "https://www.linkedin.com/in/thomasror/", email: "thomasraul06@gmail.com" }
       },
       footer: {
         copyright: `© ${new Date().getFullYear()} Thomas Oliveira. Todos os direitos reservados.`
@@ -205,7 +205,7 @@ type HeaderContent = {
       contact: {
         title: "Let's Talk",
         subtitle: "I'm always open to new opportunities and collaborations. Feel free to get in touch.",
-        links: { github: "#", linkedin: "#", email: "youremail@example.com" }
+        links: { github: "https://github.com/ThomasRoR", linkedin: "https://www.linkedin.com/in/thomasror/", email: "thomasraul06@gmail.com" }
       },
       footer: {
         copyright: `© ${new Date().getFullYear()} Thomas Oliveira. All rights reserved.`
