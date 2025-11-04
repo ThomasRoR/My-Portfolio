@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJsSquare, faHtml5, faCss3Alt, faReact, faPython, faFigma } from '@fortawesome/free-brands-svg-icons';
 import { faCube, faLink, faMagic } from '@fortawesome/free-solid-svg-icons';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 
 interface ToolsProps {
   content: {
@@ -15,13 +16,21 @@ const iconMap: { [key: string]: IconDefinition } = {
 };
 
 export function Tools({ content }: ToolsProps) {
+  const { ref: sectionRef, hasRevealed } = useRevealOnScroll({ revealDelay: 120 });
+
   return (
-    <section id="ferramentas" className="py-20">
-      <h2 className="text-4xl font-bold text-center mb-12">{content.title}</h2> {/* */}
+    <section
+      ref={sectionRef}
+      id="ferramentas"
+      className={`py-20 transform-gpu transition-all duration-700 ease-out ${
+        hasRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      <h2 className="text-4xl font-bold text-center mb-12 text-orange-custom">{content.title}</h2> {/* */}
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {content.toolList.map(tool => (
-            <div key={tool.name} className="bg-gray-900/90 p-6 rounded-lg border border-gray-800 backdrop-blur-sm text-center transform hover:-translate-y-2 transition-transform duration-300 hover:border-purple-custom">
+            <div key={tool.name} className="bg-gray-900/90 p-6 rounded-lg border border-gray-800 backdrop-blur-sm text-center transform hover:-translate-y-2 transition-transform duration-300 hover:border-orange-custom">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <FontAwesomeIcon icon={iconMap[tool.icon]} className={`text-4xl ${tool.color}`} />
               </div>

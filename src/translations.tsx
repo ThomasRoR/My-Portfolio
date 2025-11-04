@@ -131,9 +131,9 @@ type HeaderContent = {
       projects: {
         title: "Projetos",
         projects: [
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Projeto+1", title: "Nome do Projeto 1", description: "Breve descrição do projeto e as tecnologias utilizadas (ex: React, Node.js, Tailwind CSS).", link: { href: "#", text: "Ver Demo →" }},
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Projeto+2", title: "Nome do Projeto 2", description: "Breve descrição do projeto e as tecnologias utilizadas.", link: { href: "#", text: "Ver no GitHub →" }},
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Projeto+3", title: "Nome do Projeto 3", description: "Breve descrição do projeto e as tecnologias utilizadas.", link: { href: "#", text: "Ler Case Study →" }}
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Projeto+1", title: "Nome do Projeto 1", description: "Breve descrição do projeto e as tecnologias utilizadas (ex: React, Node.js, Tailwind CSS).", link: { href: "#", text: "Ver Demo →" }},
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Projeto+2", title: "Nome do Projeto 2", description: "Breve descrição do projeto e as tecnologias utilizadas.", link: { href: "#", text: "Ver no GitHub →" }},
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Projeto+3", title: "Nome do Projeto 3", description: "Breve descrição do projeto e as tecnologias utilizadas.", link: { href: "#", text: "Ler Case Study →" }}
         ]
       },
       contact: {
@@ -197,9 +197,9 @@ type HeaderContent = {
       projects: {
         title: "Projects",
         projects: [
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Project+1", title: "Project Name 1", description: "Brief description of the project and the technologies used (e.g., React, Node.js, Tailwind CSS).", link: { href: "#", text: "View Demo →" }},
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Project+2", title: "Project Name 2", description: "Brief description of the project and the technologies used.", link: { href: "#", text: "View on GitHub →" }},
-          { imageSrc: "https://placehold.co/600x400/8A2BE2/FFFFFF?text=Project+3", title: "Project Name 3", description: "Brief description of the project and the technologies used.", link: { href: "#", text: "Read Case Study →" }}
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Project+1", title: "Project Name 1", description: "Brief description of the project and the technologies used (e.g., React, Node.js, Tailwind CSS).", link: { href: "#", text: "View Demo →" }},
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Project+2", title: "Project Name 2", description: "Brief description of the project and the technologies used.", link: { href: "#", text: "View on GitHub →" }},
+          { imageSrc: "https://placehold.co/600x400/FF9EDC/FFFFFF?text=Project+3", title: "Project Name 3", description: "Brief description of the project and the technologies used.", link: { href: "#", text: "Read Case Study →" }}
         ]
       },
       contact: {
