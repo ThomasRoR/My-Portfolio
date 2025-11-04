@@ -22,13 +22,13 @@ function Particles() {
   return (
     <points>
       <bufferGeometry>
-      <bufferAttribute
-    attach="attributes-position"
-  count={particleCount}
-  array={positions}
-  itemSize={3}
-  args={[positions, 3]}
-/>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={positions}
+          itemSize={3}
+          args={[positions, 3]}
+        />
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
@@ -40,9 +40,17 @@ function Particles() {
   );
 }
 
-export function SplashAnimation() {
+interface SplashAnimationProps {
+  isVisible: boolean;
+}
+
+export function SplashAnimation({ isVisible }: SplashAnimationProps) {
   return (
-    <div className="fixed top-0 left-0 w-full h-screen bg-black z-50">
+    <div
+      className={`fixed top-0 left-0 w-full h-screen bg-black z-50 transition-opacity duration-1000 ${
+        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+    >
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <Particles />
       </Canvas>

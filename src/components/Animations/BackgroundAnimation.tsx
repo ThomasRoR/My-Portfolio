@@ -2,7 +2,11 @@ import * as THREE from 'three';
 import { useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 
-function BackgroundParticles() {
+interface BackgroundParticlesProps {
+  color: string;
+}
+
+function BackgroundParticles({ color }: BackgroundParticlesProps) {
   const particleCount = 2000;
 
   const positions = useMemo(() => {
@@ -12,6 +16,8 @@ function BackgroundParticles() {
     }
     return posArray;
   }, [particleCount]);
+
+  const particlesColor = useMemo(() => new THREE.Color(color), [color]);
 
   useFrame((state, delta) => {
     if (state.scene.children[0]) {
@@ -33,20 +39,24 @@ function BackgroundParticles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.015}
-        color="#8A2BE2"
         transparent
         blending={THREE.AdditiveBlending}
         opacity={0.7}
+        color={particlesColor}
       />
     </points>
   );
 }
 
-export function BackgroundAnimation() {
+interface BackgroundAnimationProps {
+  color: string;
+}
+
+export function BackgroundAnimation({ color }: BackgroundAnimationProps) {
   return (
     <div id="background-canvas">
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-        <BackgroundParticles />
+        <BackgroundParticles color={color} />
       </Canvas>
     </div>
   );

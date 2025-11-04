@@ -12,9 +12,20 @@ import { Contact } from './components/sections/Contact';
 
 import { translations } from './translations';
 
+const SECTION_COLOR_MAP: Record<string, string> = {
+  hero: '#8A2BE2',
+  sobre: '#8A2BE2',
+  ferramentas: '#FF8A3D',
+  experiencia: '#2ED5C1',
+  projetos: '#FF9EDC',
+  contato: '#8A2BE2',
+};
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+  const [backgroundColor, setBackgroundColor] = useState(SECTION_COLOR_MAP.hero);
   
   const [language, setLanguage] = useState<'pt' | 'en'>('en');
 
@@ -27,7 +38,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -35,18 +46,84 @@ function App() {
     if (!loading) {
       const fadeInTimer = setTimeout(() => {
         setShowContent(true);
-      }, 500);
+      }, 250);
       return () => clearTimeout(fadeInTimer);
     }
   }, [loading]);
 
+  useEffect(() => {
+    if (!loading) {
+      const removalTimer = setTimeout(() => {
+        setShowSplash(false);
+      }, 500);
+      return () => clearTimeout(removalTimer);
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const sectionIds = Object.keys(SECTION_COLOR_MAP);
+
+    const determineActiveSection = () => {
+      const viewportMiddle = window.innerHeight / 2;
+      let closestSectionId = 'hero';
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      sectionIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (!element) {
+          return;
+        }
+
+        const rect = element.getBoundingClientRect();
+        const sectionMiddle = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionMiddle - viewportMiddle);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSectionId = id;
+        }
+      });
+
+      const newColor = SECTION_COLOR_MAP[closestSectionId] ?? SECTION_COLOR_MAP.hero;
+      setBackgroundColor(prev => (prev === newColor ? prev : newColor));
+    };
+
+    let rafId: number | null = null;
+
+    const handleScroll = () => {
+      if (rafId !== null) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        determineActiveSection();
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    determineActiveSection();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
+  }, []);
+
   return (
     <>
-      <div className={`transition-opacity duration-1000 ${loading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        {loading && <SplashAnimation />}
-      </div>
+      {showSplash && <SplashAnimation isVisible={loading} />}
 
-      <BackgroundAnimation />
+      <BackgroundAnimation color={backgroundColor} />
 
       <div className={`transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         
@@ -54,6 +131,7 @@ function App() {
           content={currentText.header} 
           currentLang={language} 
           onLanguageToggle={toggleLanguage} 
+          accentColor={backgroundColor}
         />
 
         <main className="container mx-auto px-6 pt-24 relative z-10">
