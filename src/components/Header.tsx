@@ -46,11 +46,11 @@ export function Header({ content, currentLang, onLanguageToggle, accentColor }: 
   const headerRef = useRef<HTMLElement>(null);
 
   const navLinks = [
-    { href: '#sobre', label: content.nav[0] },
-    { href: '#ferramentas', label: content.nav[1] },
-    { href: '#experiencia', label: content.nav[2] },
-    { href: '#projetos', label: content.nav[3] },
-    { href: '#contato', label: content.nav[4] },
+    { href: '#sobre', label: content.nav[0], color: '#8A2BE2' },
+    { href: '#ferramentas', label: content.nav[1], color: '#FF8A3D' },
+    { href: '#experiencia', label: content.nav[2], color: '#2ED5C1' },
+    { href: '#projetos', label: content.nav[3], color: '#FF9EDC' },
+    { href: '#contato', label: content.nav[4], color: '#8A2BE2' },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -78,7 +78,14 @@ export function Header({ content, currentLang, onLanguageToggle, accentColor }: 
         
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
-            <a key={link.href} href={link.href} onClick={handleSmoothScroll} className="text-white hover:text-purple-custom transition duration-300">
+            <a 
+              key={link.href} 
+              href={link.href} 
+              onClick={handleSmoothScroll} 
+              className="text-white transition duration-300"
+              onMouseEnter={(e) => e.currentTarget.style.color = link.color}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+            >
               {link.label}
             </a>
           ))}
@@ -97,7 +104,14 @@ export function Header({ content, currentLang, onLanguageToggle, accentColor }: 
       
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
         {navLinks.map(link => (
-          <a key={link.href} href={link.href} onClick={handleSmoothScroll} className="block py-2 px-6 text-white hover:bg-gray-900">
+          <a 
+            key={link.href} 
+            href={link.href} 
+            onClick={handleSmoothScroll} 
+            className="block py-2 px-6 text-white hover:bg-gray-900 transition"
+            onMouseEnter={(e) => e.currentTarget.style.color = link.color}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+          >
             {link.label}
           </a>
         ))}
